@@ -21,7 +21,7 @@ export async function createGame(pastGame){
     // create a single new game in the games table using the above object
     const response = await client
         .from('games')
-        .insert('pastGame');
+        .insert(pastGame);
 
     return checkError(response);
 }

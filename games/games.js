@@ -75,14 +75,16 @@ finishGameButton.addEventListener('click', async() => {
         score1: score1,
         score2: score2,
     };
+
+    await createGame(pastGame);
     // after creating this new game, re-fetch the games to get the updated state and display them (hint: call displayAllGames())
+    displayCurrentGameEl();
             
     name1 = '';
     name2 = '';
     score1 = 0;
     score2 = 0;
 
-    displayCurrentGameEl();
 });
 
 logoutButton.addEventListener('click', () => {
@@ -129,13 +131,13 @@ async function displayAllGames() {
     
     // loop through the past games 
     for (let game of games) {
-        const gameEl = renderGames(game);
+        const gameEl = renderGame(game);
         
         // render and append a past game for each past game in state
         pastGamesEl.append(gameEl);
-}
+    }
 
 
-displayCurrentGameEl();
+    displayCurrentGameEl();
 
 }
